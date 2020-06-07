@@ -13,7 +13,7 @@ print(file_1)
 
 
 ############# for highly tissue specific ############
-res = data.frame() # to stroe fraction
+res = data.frame() # to store fraction
 res_n = data.frame() # to store exact numbers
 
 tissues = unique(df$Tissue)
@@ -46,14 +46,6 @@ for(i in 1:length(tissues)){
 	res[j+2,"Number"] = nrow(tau_w)
 	res[j+2,"Tissue"] = tis
 
-	# absent = data[data$Group == "Absent",]
-# 	tau_a = absent[absent$Tau >= 0.85,]
-# 	per_a = (nrow(tau_a)/nrow(absent))*100
-# 	res[j+3,"Group"] = "Absent"
-# 	#res[j+3,"Fraction"] = per_a
-# 	res[j+3,"Number"] = nrow(tau_a)
-# 	res[j+3,"Tissue"] = tis
-
 	j = j + 3
 }
 
@@ -70,10 +62,7 @@ cat("Weak: ")
 weak = mean(res[res$Group == "Weak",2])
 print(weak)
 cat("\n")
-cat("Absent: ")
-ab = mean(res[res$Group == "Absent",2])
-print(ab)
-cat("\n")
+
 
 # bar plot #########
 png(file_1,bg="transparent",units="in",width = 10.25, height= 4.25 ,res=600)
@@ -83,7 +72,6 @@ scale_fill_manual(values=c("forestgreen", "orange", "light slate grey"),
 						name="",
                          breaks=c("Super", "Typical", "Weak"),
                          labels=c("SEC", "TEC", "WEC")) +
-# promoter colours = "white smoke", "red", "#FF6666"
 theme_bw() +
 geom_hline(aes(yintercept=super), colour="forestgreen", linetype="dashed", lwd = 0.3) +
 #annotate("text",x=21.80,y=super+2,size=2,label=c("mean super-enh")) +
@@ -145,13 +133,6 @@ for(i in 1:length(tissues)){
 	res2[j+2,"Fraction"] = per_w
 	res2[j+2,"Tissue"] = tis
 
-	# absent = data[data$Group == "Absent",]
-	# tau_a = absent[absent$Tau >= 0.85,]
-	# per_a = (nrow(tau_a)/nrow(absent))*100
-	# res[j+3,"Group"] = "Absent"
-	# res[j+3,"Fraction"] = per_a
-	# res[j+3,"Tissue"] = tis
-
 	j = j + 3
 }
 
@@ -205,7 +186,6 @@ theme(plot.title = element_text(size=12, hjust = 0.5, face= "bold", margin = mar
 )+
 scale_x_discrete(name = "Tissues")+
 scale_y_continuous(name = "Fraction of target genes with\nintermediate tissue-specific expression (%)",limits = c(0,100))
-#ggtitle("Fraction of target genes with highly tissue specific expression (Tau_fraction>=0.85)")
 dev.off()
 
 #############################################################
@@ -239,13 +219,6 @@ for(i in 1:length(tissues)){
 	res3[j+2,"Group"] = "Weak"
 	res3[j+2,"Fraction"] = per_w
 	res3[j+2,"Tissue"] = tis
-
-	# absent = data[data$Group == "Absent",]
-	# tau_a = absent[absent$Tau >= 0.85,]
-	# per_a = (nrow(tau_a)/nrow(absent))*100
-	# res[j+3,"Group"] = "Absent"
-	# res[j+3,"Fraction"] = per_a
-	# res[j+3,"Tissue"] = tis
 
 	j = j + 3
 }
@@ -300,7 +273,6 @@ theme(plot.title = element_text(size=12, hjust = 0.5, face="bold", margin = marg
 )+
 scale_x_discrete(name = "Tissue")+
 scale_y_continuous(name = "Fraction of target genes with\nlow tissue-specific expression (%)",limits = c(0,100))
-#ggtitle("Fraction of target genes with highly tissue specific expression (Tau_fraction>=0.85)")
 dev.off()
-#
+
 
