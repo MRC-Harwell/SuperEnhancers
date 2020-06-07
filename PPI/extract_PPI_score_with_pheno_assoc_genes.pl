@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-# extracting protein interaction score from STRING database data
-#Author: Sid
+# extracting protein interaction score with phenotype associated genes from STRING database data (locally downloaded)
+# Author: Sid
 
 use Getopt::Long;
 use Cwd ;
@@ -23,7 +23,7 @@ sub useage { die(qq/
 	ARGUMENTS :
                     REQUIRED
                     -i -> input gene list file
-					-o -> output file name
+			-o -> output file name
 
                     OPTIONAL
                     -p -> OUTPUT path where the files need to be saved [default = cwd ]
@@ -36,7 +36,7 @@ if($help) { &useage ;}
 #unless( ) { print "\n \n" ; &useage ;}
 if( !$path || $path =~ /\./ ) { $cwd = getcwd ; $path = "$cwd" ; }
 
-my $mp_dir = "/NGS/users/Sid/IMPC_genes/Mgi_14June_17/Dissection" ;
+my $mp_dir = "Mgi_14June_17/Dissection" ;
 my @mps = ("MP:0005388") ;
 
 # gene to protein ID STRING mapping file
@@ -44,7 +44,6 @@ my $mapping = "/NGS/users/Sid/StringDB_interactions/10090.protein.aliases.v10.5.
 
 # STRING interactions data
 my $interactions = "/NGS/users/Sid/StringDB_interactions/10090.protein.links.detailed.v10.5.txt";
-#my $interactions = "/NGS/users/Sid/StringDB_interactions/test";
 
 my %mapping ;
 open(mapp,$mapping) or die "Cannot open $mapping" ;
