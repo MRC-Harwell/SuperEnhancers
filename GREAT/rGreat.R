@@ -1,4 +1,5 @@
 #!/bin/Rscript
+# Running GREAT via R
 args<-commandArgs(TRUE)   #1st arument = table , 2nd = output directory path
 
 library(rGREAT)
@@ -6,10 +7,8 @@ library(rGREAT)
 df = read.table(args[1],header=F,sep="\t")
 colnames(df) = c("chr","start","end","id")
 
-#df$start = df$start + 100
 
 job = submitGreatJob(df, species = "mm9",  version = "3.0.0", request_interval = 60)
-#job = submitGreatJob(df, species = "mm10",  version = "3.0.0", request_interval = 60)
 
 tb = getEnrichmentTables(job, ontology = c("GO Biological Process", "GO Molecular Function", "Mouse Phenotype", "Human Phenotype", "Disease Ontology", "PANTHER Pathway", "MSigDB Pathway"))
 names(tb)
