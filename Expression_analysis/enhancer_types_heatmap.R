@@ -15,7 +15,7 @@ df$sums = rowSums(df)
 # write cell type specific table for each geneSymbol
 table = df[,23,drop=FALSE]
 table$Type = "Super"
-#write.table(table, file = "all.te.genes.cellTypeSpec.txt", sep="\t",row.names=T, col.names=F, quote=F)
+write.table(table, file = "all.te.genes.cellTypeSpec.txt", sep="\t",row.names=T, col.names=F, quote=F)
 
 
 ############################################################
