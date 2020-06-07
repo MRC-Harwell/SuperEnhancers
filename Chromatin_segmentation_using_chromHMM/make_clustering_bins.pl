@@ -33,7 +33,6 @@ if( !$path || $path =~ /\./ ) { $cwd = getcwd ; $path = "$cwd" ; }
 
 
 my $annotation_1 = "E2" ;    #annotation to keep
-#my $annotation_2 = "Active_promoter_medium" ;
 my $dir = "/NGS/users/Sid/ChromHmm/LearnModel/State_6" ;
 my $max_states = 6 ;
 my @files = (
