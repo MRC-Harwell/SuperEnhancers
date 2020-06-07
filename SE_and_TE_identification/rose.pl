@@ -22,7 +22,7 @@ if( !$path || $path =~ /\./ ) { $cwd = getcwd ; $path = "$cwd" ; }
 system "python /NGS/Software/rose/ROSE_main.py -i $bed -g MM9 -o $path -r $bam -c $control -t 2000" ;
 
 #For making points plot of rose
-#R --no-save /NGS/users/Sid/ENHANCERS/Rose/Bmarrow/Pol2/ Bmarrow_12KB_STITCHED_TSS_DISTAL_ENHANCER_REGION_MAP.txt Bmarrow NONE < /NGS/Software/rose/ROSE_callSuper.R
+#R --no-save /NGS/users/Sid/ENHANCERS/Rose/Bmarrow/ Bmarrow_12KB_STITCHED_TSS_DISTAL_ENHANCER_REGION_MAP.txt Bmarrow NONE < /NGS/Software/rose/ROSE_callSuper.R
 
 
 # For Metagene profile matrix ####
