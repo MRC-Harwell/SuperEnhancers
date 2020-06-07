@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# annotate ROSE results back to the constituent enhacer elements
+# extract the nearest gene from GREAT results
 #Author: Sid
 
 use Getopt::Long;
