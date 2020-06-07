@@ -34,25 +34,18 @@ man.pval3 = wilcox.test(df.te,df.we)$p.value
 label1 = paste("p = ",format.pval(man.pval1,2),sep="")
 label2 = paste("p = ",format.pval(man.pval2,2),sep="")
 
-label = "p < 2.2e-16" #custom label
+label = "p < 2.2e-16" #custom label in case p-values are extremely small
 
 
-#print(wilcox.test(df.se,df.te,conf.int=TRUE))
+print(wilcox.test(df.se,df.te,conf.int=TRUE))
 print(median(df.se))
 print(median(df.te))
 print(man.pval3)
-#print(wilcox.test(df.se,df.we, conf.int=TRUE))
+print(wilcox.test(df.se,df.we, conf.int=TRUE))
 
 name = sub(".txt","",args[1])
 file_name = paste(name,".tau.summary.png",sep="")
 print(file_name)
-
-
-# sig=data.frame(x=c(0.7,0.7,0.7), xend=c(0.9,1.1,1.3),
-                              # y=c(4,3.8,3.6), annotation=c("**", "ns","**"))
-# geom_signif(stat="identity",
-              # data= sig,
-              # aes(x=x,xend=xend, y=y, yend=y, annotation=annotation, group=c(1,2,3)), tip_length = 1, textsize=2)
 
 png(file_name,bg="transparent",units="in",width = 4.25, height= 3.75 ,res=600)
 ggplot(df, aes(x=factor(Group), y=Tau)) +
