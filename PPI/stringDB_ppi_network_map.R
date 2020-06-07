@@ -57,7 +57,8 @@ V(network)$type = labels$type
 
 ### working on extracting phenotype, for adding attributes to the graph object
 cat("Extracting the phenotypes....\n")
-mp = "/NGS/users/Sid/ChromHmm/Posterior/State_6/POSTERIOR/Tau_enhancers/TauResults/Highly_specific/Pleitropy_mp/mgi_mp_matrix_update.txt"
+# phenotype data from MGI- processed into a matrix
+mp = "mgi_mp_matrix_update.txt"
 df = read.table(mp,header=T,sep="\t")
 
 phenotypes = data.frame()
@@ -103,10 +104,7 @@ png(file_name,bg="transparent",units="in",width = 7.25, height= 6.25 ,res=600)
 lo = layout_with_fr(network, grid = "nogrid")
 plot(network,
 	vertex.label = NA,
-	#vertex.size = 3.5,
-	#layout=layout.kamada.kawai,
 	vertex.size = 2.5,
-	#vertex.size = 3.2,
 	layout = lo,
 	edge.width = 0.4,
 	frame=TRUE,
